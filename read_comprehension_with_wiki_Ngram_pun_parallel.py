@@ -24,8 +24,14 @@ stemmer = SnowballStemmer('english')
 wikipedia.set_rate_limiting(True)
 session = HTMLSession()
 results = 5
-predictor = Predictor.from_path("https://storage.googleapis.com/allennlp-public-models/bidaf-elmo-model-2018.11.30-charpad.tar.gz")
-srl = Predictor.from_path('https://s3-us-west-2.amazonaws.com/allennlp/models/bert-base-srl-2019.06.17.tar.gz')
+try:
+    predictor = Predictor.from_path("bidaf-model-2017.09.15-charpad.tar.gz")
+except:
+    predictor = Predictor.from_path("https://storage.googleapis.com/allennlp-public-models/bidaf-elmo-model-2018.11.30-charpad.tar.gz")
+try:
+    srl = Predictor.from_path('srl-model-2018.05.25.tar.gz')
+except:
+    srl = Predictor.from_path('https://s3-us-west-2.amazonaws.com/allennlp/models/bert-base-srl-2019.06.17.tar.gz')
 key = Rake(min_length=1, stopwords=stop, punctuations=punctuation, max_length=6)
 wh_words = "who|what|how|where|when|why|which|whom|whose|explain".split('|')
 stop.extend(wh_words)
