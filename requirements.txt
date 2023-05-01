@@ -2,7 +2,7 @@ requests==2.22.0
 spacy==2.2.3
 gevent==1.4.0
 nltk==3.4.5
-Flask==1.1.1
+Flask==2.3.2
 textblob==0.15.3
 allennlp==0.9.0
 beautifulsoup4==4.8.2
